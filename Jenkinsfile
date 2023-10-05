@@ -40,7 +40,7 @@ pipeline {
 	   
 	stage('Kubernetes Deployment of ASG Bugg Web Application') {
 	   steps {
-	      withKubeConfig([credentialsId: 'Kubeconfig']) {
+	      withKubeConfig([credentialsId: 'config']) {
 		  sh('kubectl delete all --all -n devsecops')
 		  sh ('kubectl apply -f deployment.yaml --namespace=devsecops')
 		}
